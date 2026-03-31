@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Jiaxing Services Pte Ltd | 专业清洁与人力服务 - 新加坡</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #f9fbfd;
+            color: #1e2a3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header {
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+        }
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: #0f3b2c;
+        }
+        .logo p {
+            font-size: 0.7rem;
+            color: #5b6e8c;
+            margin-top: 4px;
+        }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2c3e4e;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover {
+            color: #1f8a4c;
+        }
+        .lang-switch {
+            display: flex;
+            gap: 8px;
+            background: #f0f2f5;
+            padding: 4px 8px;
+            border-radius: 40px;
+        }
+        .lang-btn {
+            background: none;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #4a627a;
+        }
+        .lang-btn.active {
+            background: #1f8a4c;
+            color: white;
+        }
+        @media (max-width: 780px) {
+            .nav { flex-direction: column; gap: 12px; text-align: center; }
+            .nav-links { justify-content: center; }
+            .nav-right { justify-content: center; }
+        }
+
+        .hero {
+            background: linear-gradient(105deg, #eef5f0 0%, #ffffff 100%);
+            padding: 60px 0 50px;
+            border-bottom: 1px solid #e2eddf;
+        }
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+        }
+        .hero-text { flex: 1.2; }
+        .hero-text h2 { font-size: 2.3rem; font-weight: 800; line-height: 1.2; color: #0a2e24; margin-bottom: 20px; }
+        .hero-text p { font-size: 1.05rem; color: #2c4b3e; margin-bottom: 28px; max-width: 550px; }
+        .btn {
+            display: inline-block;
+            background-color: #1f8a4c;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover { background-color: #0f6a3a; }
+        .hero-badge {
+            flex: 0.8;
+            background: white;
+            border-radius: 36px;
+            padding: 24px 28px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            border: 1px solid #e0f0e5;
+        }
+        .hero-badge p { font-weight: 600; font-size: 1rem; color: #1f8a4c; margin-bottom: 12px; }
+        .hero-badge ul { list-style: none; }
+        .hero-badge li { margin: 12px 0; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+        .hero-badge li::before { content: "✓"; color: #1f8a4c; font-weight: bold; }
+        @media (max-width: 800px) {
+            .hero-text h2 { font-size: 1.8rem; }
+            .hero-grid { flex-direction: column; }
+            .hero-badge { width: 100%; }
+        }
+
+        .section { padding: 64px 0; border-bottom: 1px solid #e9edf2; }
+        .section-title { font-size: 1.8rem; font-weight: 700; color: #0f3b2c; margin-bottom: 16px; text-align: center; }
+        .section-sub { text-align: center; color: #5b6e8c; max-width: 680px; margin: 0 auto 48px auto; }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 28px;
+            margin-top: 20px;
+        }
+        .service-card {
+            background: white;
+            border-radius: 28px;
+            padding: 26px 24px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.03), 0 0 0 1px #f0f3f7;
+            transition: all 0.2s ease;
+        }
+        .service-card:hover { transform: translateY(-3px); box-shadow: 0 15px 25px -12px rgba(0,0,0,0.1); }
+        .service-icon { font-size: 2rem; margin-bottom: 16px; }
+        .service-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; color: #1f3d33; }
+        .service-desc { color: #3f5a6b; font-size: 0.9rem; line-height: 1.45; margin-bottom: 12px; }
+        .service-detail { font-size: 0.8rem; color: #5b7c6a; border-top: 1px solid #e8efea; margin-top: 12px; padding-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; }
+        .detail-tag { background: #f0f6f2; padding: 3px 10px; border-radius: 30px; font-size: 0.7rem; color: #2c6e49; }
+
+        .about-wrap {
+            background: #f8fbf8;
+            border-radius: 40px;
+            padding: 44px 40px;
+            margin: 20px 0;
+        }
+        .about-flex { display: flex; flex-wrap: wrap; gap: 44px; align-items: flex-start; }
+        .about-text { flex: 1.6; }
+        .about-text h3 { font-size: 1.8rem; margin-bottom: 18px; color: #0c3b2c; }
+        .about-text p { margin-bottom: 16px; color: #2c4a3a; line-height: 1.6; font-size: 0.98rem; }
+        .about-stats {
+            flex: 1;
+            background: white;
+            border-radius: 32px;
+            padding: 28px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.03);
+            border: 1px solid #e2ede3;
+        }
+        .about-stats li { list-style: none; margin-bottom: 18px; display: flex; align-items: flex-start; gap: 12px; font-size: 0.92rem; }
+        .about-stats li strong { color: #1f8a4c; min-width: 100px; font-weight: 600; }
+
+        .testimonials-section { background: #fefef8; }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .testimonial-card {
+            background: white;
+            border-radius: 28px;
+            padding: 26px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+            border: 1px solid #ecf3ea;
+        }
+        .stars { color: #f5b342; font-size: 1rem; margin-bottom: 14px; letter-spacing: 2px; }
+        .testimonial-text { font-size: 0.95rem; line-height: 1.5; color: #2c3e4a; margin-bottom: 18px; font-style: normal; }
+        .customer-info { display: flex; align-items: center; gap: 12px; border-top: 1px solid #ecf3ea; padding-top: 16px; }
+        .customer-avatar { background: #d4e3db; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #1f6e43; font-weight: bold; font-size: 1rem; }
+        .customer-name { font-weight: 600; color: #1e3a2f; font-size: 0.9rem; }
+        .customer-title { font-size: 0.7rem; color: #7a9b88; }
+
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: #ffffff;
+            border-radius: 40px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+            padding: 40px 36px;
+            margin-top: 20px;
+        }
+        .contact-info { flex: 1; }
+        .contact-info h3 { font-size: 1.5rem; margin-bottom: 20px; color: #1b4e3a; }
+        .contact-detail p { margin-bottom: 12px; display: flex; align-items: center; gap: 12px; font-size: 0.98rem; }
+        .contact-form-side { flex: 1; background: #f8fafc; border-radius: 32px; padding: 28px; }
+        .input-group { margin-bottom: 16px; }
+        .input-group input, .input-group textarea, .input-group select {
+            width: 100%; padding: 12px 16px; border: 1px solid #dce5e8; border-radius: 28px;
+            font-family: inherit; font-size: 0.9rem; background: white;
+        }
+        .input-group input:focus, .input-group textarea:focus, .input-group select:focus {
+            outline: none; border-color: #1f8a4c; box-shadow: 0 0 0 2px rgba(31,138,76,0.1);
+        }
+        .btn-submit { background-color: #1f8a4c; color: white; border: none; width: 100%; padding: 12px; border-radius: 40px; font-weight: 600; cursor: pointer; font-size: 0.95rem; }
+        .btn-submit:hover { background-color: #0f6a3a; }
+        .form-note { font-size: 0.7rem; margin-top: 10px; text-align: center; color: #6c86a3; }
+        .success-msg { background: #e0f0e3; color: #1f6e43; padding: 10px; border-radius: 24px; text-align: center; margin-top: 14px; font-size: 0.85rem; }
+
+        .footer { background: #0f2a21; color: #cbdcd4; padding: 36px 0 24px; text-align: center; }
+        .footer a { color: #b9dfc9; text-decoration: none; }
+        .whatsapp-float {
+            position: fixed; bottom: 24px; right: 24px; background: #25D366; color: white;
+            width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-size: 26px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 20; text-decoration: none;
+        }
+        .hidden-lang { display: none; }
+        @media (max-width: 550px) {
+            .whatsapp-float { width: 44px; height: 44px; font-size: 22px; }
+            .section { padding: 48px 0; }
+            .about-wrap, .contact-grid { padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="nav">
+            <div class="logo">
+                <h1>JIAXING SERVICES PTE. LTD.</h1>
+                <p data-lang="zh">清洁服务 · 人力支援</p>
+                <p data-lang="en" class="hidden-lang">Cleaning Services · Manpower Support</p>
+            </div>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="#home" data-key="nav_home">首页</a>
+                    <a href="#services" data-key="nav_services">服务</a>
+                    <a href="#about" data-key="nav_about">公司简介</a>
+                    <a href="#testimonials" data-key="nav_reviews">客户反馈</a>
+                    <a href="#contact" data-key="nav_contact">联系我们</a>
+                </div>
+                <div class="lang-switch">
+                    <button class="lang-btn active" id="langZh">中文</button>
+                    <button class="lang-btn" id="langEn">English</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section id="home">
+        <div class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-text">
+                        <h2 data-lang="zh">本地清洁与人力服务<br>踏实做事 · 用心服务</h2>
+                        <h2 data-lang="en" class="hidden-lang">Local Cleaning & Manpower<br>Reliable Service · Honest Work</h2>
+                        <p data-lang="zh">Jiaxing Services 是新加坡本地注册的服务公司，专注于为餐饮、商业和住宅客户提供日常清洁和人力支援。我们注重每一个细节，力求让客户省心、放心。</p>
+                        <p data-lang="en" class="hidden-lang">Jiaxing Services is a locally registered company in Singapore, providing daily cleaning and manpower support for F&B, commercial, and residential clients. We focus on every detail to make your experience hassle-free.</p>
+                        <a href="#contact" class="btn" data-key="hero_btn">联系我们 →</a>
+                    </div>
+                    <div class="hero-badge">
+                        <p>为什么选择我们</p>
+                        <ul>
+                            <li data-lang="zh">新加坡本地注册公司</li>
+                            <li data-lang="en" class="hidden-lang">Singapore-registered company</li>
+                            <li data-lang="zh">员工背景核查 + 基本保险保障</li>
+                            <li data-lang="en" class="hidden-lang">Staff background checks + basic insurance</li>
+                            <li data-lang="zh">根据您的需求灵活安排服务</li>
+                            <li data-lang="en" class="hidden-lang">Flexible scheduling based on your needs</li>
+                            <li data-lang="zh">价格透明，无隐藏费用</li>
+                            <li data-lang="en" class="hidden-lang">Transparent pricing, no hidden fees</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title" data-lang="zh">我们的服务</h2>
+            <h2 class="section-title" data-lang="en" class="hidden-lang">Our Services</h2>
+            <div class="section-sub" data-lang="zh">根据您的实际需求，提供适合的清洁和人力方案</div>
+            <div class="section-sub" data-lang="en" class="hidden-lang">Tailored cleaning and manpower solutions for your needs</div>
+            <div class="services-grid">
+                <div class="service-card"><div class="service-icon">🍽️</div><h3>餐厅洗碗与后厨清洁</h3><div class="service-desc" data-lang="zh">为餐饮门店提供餐具清洗、后厨台面清洁、地面除油等服务，协助保持厨房卫生。</div><div class="service-desc" data-lang="en" class="hidden-lang">Dishwashing, kitchen surface cleaning, floor degreasing for F&B outlets.</div><div class="service-detail"><span class="detail-tag">每日餐具周转</span><span class="detail-tag">后厨油污清理</span><span class="detail-tag">可配合营业时间</span></div></div>
+                <div class="service-card"><div class="service-icon">🏢</div><h3>办公室与商业清洁</h3><div class="service-desc" data-lang="zh">日常办公区域清洁，包括桌面、地面、茶水间、洗手间等，保持整洁的工作环境。</div><div class="service-desc" data-lang="en" class="hidden-lang">Daily office cleaning: desks, floors, pantry, washrooms, maintaining a tidy workspace.</div><div class="service-detail"><span class="detail-tag">工作日或周末</span><span class="detail-tag">垃圾收集</span><span class="detail-tag">可按次或长期</span></div></div>
+                <div class="service-card"><div class="service-icon">👥</div><h3>临时人力支援</h3><div class="service-desc" data-lang="zh">活动、展会或高峰时段需要额外人手？我们可安排临时员工协助，按小时或按天计费。</div><div class="service-desc" data-lang="en" class="hidden-lang">Need extra hands for events, exhibitions, or peak hours? Hourly or daily temp staff available.</div><div class="service-detail"><span class="detail-tag">提前1-2天预约</span><span class="detail-tag">基础岗前说明</span><span class="detail-tag">适合短期需求</span></div></div>
+                <div class="service-card"><div class="service-icon">🏠</div><h3>组屋与公寓清洁</h3><div class="service-desc" data-lang="zh">住宅日常打扫、退房清洁、入住前保洁，重点区域如厨房、浴室、窗框等。</div><div class="service-desc" data-lang="en" class="hidden-lang">Residential cleaning: regular upkeep, move-in/out cleaning, focus on kitchen, bathroom, window frames.</div><div class="service-detail"><span class="detail-tag">按小时或按户型</span><span class="detail-tag">自备或使用客户工具</span><span class="detail-tag">可定期预约</span></div></div>
+                <div class="service-card"><div class="service-icon">🛋️</div><h3>地毯与沙发清洗</h3><div class="service-desc" data-lang="zh">使用专业设备进行地毯和布艺沙发的深层清洁，去除污渍与异味。</div><div class="service-desc" data-lang="en" class="hidden-lang">Deep cleaning for carpets and fabric sofas using professional equipment.</div><div class="service-detail"><span class="detail-tag">蒸汽抽洗</span><span class="detail-tag">针对性去渍</span><span class="detail-tag">干燥时间约4-6小时</span></div></div>
+                <div class="service-card"><div class="service-icon">🪟</div><h3>玻璃与窗户清洁</h3><div class="service-desc" data-lang="zh">室内外玻璃清洁，窗框擦拭，去除水渍与污垢，让视野更清晰。</div><div class="service-desc" data-lang="en" class="hidden-lang">Interior & exterior glass cleaning, window frame wiping, removing water stains and dirt.</div><div class="service-detail"><span class="detail-tag">无痕清洁</span><span class="detail-tag">低层/高层可协商</span><span class="detail-tag">自备安全设备</span></div></div>
+                <div class="service-card"><div class="service-icon">❄️</div><h3>空调基本维护</h3><div class="service-desc" data-lang="zh">滤网清洗、排水管检查、外壳擦拭，保持空调运行顺畅。</div><div class="service-desc" data-lang="en" class="hidden-lang">Filter cleaning, drainage check, exterior wipe-down to keep AC running smoothly.</div><div class="service-detail"><span class="detail-tag">建议每3个月一次</span><span class="detail-tag">可组合多项服务</span><span class="detail-tag">不涉及制冷剂添加</span></div></div>
+                <div class="service-card"><div class="service-icon">🧹</div><h3>装修后清洁</h3><div class="service-desc" data-lang="zh">装修或翻新后的全面清洁，清除粉尘、胶迹、保护膜残留等。</div><div class="service-desc" data-lang="en" class="hidden-lang">Post-renovation cleaning: dust removal, adhesive residue, protective film leftovers.</div><div class="service-detail"><span class="detail-tag">需提前预约</span><span class="detail-tag">按房屋面积报价</span><span class="detail-tag">建议完工后3天内进行</span></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-wrap">
+                <div class="about-flex">
+                    <div class="about-text">
+                        <h3>关于我们</h3>
+                        <p data-lang="zh">Jiaxing Services Pte. Ltd. 于2022年在新加坡注册成立（UEN：202230583W）。我们是一家务实的服务公司，主要为本地餐饮店、办公室和住宅提供日常清洁及临时人力支援。</p>
+                        <p data-lang="en" class="hidden-lang">Jiaxing Services Pte. Ltd. was incorporated in Singapore in 2022 (UEN: 202230583W). We are a dedicated service company providing daily cleaning and temporary manpower support for local F&B outlets, offices, and residences.</p>
+                        <p data-lang="zh">我们团队真诚、专业，每一位成员都经过基本的背景核查和岗前培训。我们相信，做好每一个小细节，比空谈规模更重要。对于服务中的问题，我们尽量及时沟通解决，不推诿、不敷衍。</p>
+                        <p data-lang="en" class="hidden-lang">Our team is sincere and professional, with each member undergoing basic background checks and on-the-job training. We believe in getting the small details right. When issues arise, we aim to communicate and resolve them promptly.</p>
+                        <p data-lang="zh">目前我们服务的客户包括小型餐饮店、共享办公空间、以及一些长期合作的住宅住户。我们欢迎您先电话或留言沟通，让我们了解您的具体需求，再给出适合的方案。</p>
+                        <p data-lang="en" class="hidden-lang">Our current clients include small F&B outlets, co-working spaces, and long-term residential customers. Feel free to call or leave a message—we'd like to understand your needs before offering a solution.</p>
+                    </div>
+                    <div class="about-stats">
+                        <ul>
+                            <li><strong>注册号</strong> 202230583W</li>
+                            <li><strong>成立时间</strong> 2022年</li>
+                            <li><strong>服务范围</strong> 新加坡全岛</li>
+                            <li><strong>服务理念</strong> 为客户所想，急客户所急</li>
+                            <li><strong>客户满意度</strong> 多数客户续约或推荐</li>
+                            <li><strong>应急处理</strong> 收到反馈后，尽力当天内响应</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section testimonials-section">
+        <div class="container">
+            <h2 class="section-title" data-lang="zh">客户反馈</h2>
+            <h2 class="section-title" data-lang="en" class="hidden-lang">Client Feedback</h2>
+            <div class="section-sub" data-lang="zh">来自我们服务过的客户</div>
+            <div class="section-sub" data-lang="en" class="hidden-lang">From customers we've worked with</div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card"><div class="stars">★★★★☆</div><div class="testimonial-text" data-lang="zh">“我们的小餐馆每天碗碟量不少，Jiaxing的阿姨做事利落，厨房台面也擦得干净。合作半年多了，基本没出过问题。”<br>— 义顺某煮炒摊 陈老板</div><div class="testimonial-text" data-lang="en" class="hidden-lang">“Our small eatery has a lot of dishwashing daily. The auntie from Jiaxing is efficient and keeps the kitchen counter clean. Been working for over half a year with no major issues.”<br>— Mr. Tan, Yishun Zi Char Stall</div><div class="customer-info"><div class="customer-avatar">陈</div><div class="customer-details"><div class="customer-name">陈先生</div><div class="customer-title">餐饮业主</div></div></div></div>
+                <div class="testimonial-card"><div class="stars">★★★★★</div><div class="testimonial-text" data-lang="zh">“公司每周两次清洁，主要是办公室地面和茶水间。服务人员准时，沟通顺畅，价格也合理。”<br>— 市区小型办公室 林经理</div><div class="testimonial-text" data-lang="en" class="hidden-lang">“Office cleaning twice a week, floors and pantry. The staff are punctual, easy to communicate with, and the price is fair.”<br>— Ms. Lim, CBD Small Office Manager</div><div class="customer-info"><div class="customer-avatar">林</div><div class="customer-details"><div class="customer-name">林女士</div><div class="customer-title">行政经理</div></div></div></div>
+                <div class="testimonial-card"><div class="stars">★★★★☆</div><div class="testimonial-text" data-lang="zh">“搬家前找了他们做退房清洁，厨房和卫生间都清理得挺干净，押金顺利拿回。下次还会考虑。”<br>— 三巴旺组屋住户 张女士</div><div class="testimonial-text" data-lang="en" class="hidden-lang">“Hired them for move-out cleaning before handing over the flat. Kitchen and bathroom were clean, got my deposit back. Will consider again.”<br>— Mrs. Zhang, Sembawang HDB Resident</div><div class="customer-info"><div class="customer-avatar">张</div><div class="customer-details"><div class="customer-name">张女士</div><div class="customer-title">住户</div></div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title" data-lang="zh">联系我们</h2>
+            <h2 class="section-title" data-lang="en" class="hidden-lang">Contact Us</h2>
+            <div class="section-sub" data-lang="zh">欢迎留言或致电，我们会尽快回复您</div>
+            <div class="section-sub" data-lang="en" class="hidden-lang">Feel free to leave a message or call, we'll get back to you soon</div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>JIAXING SERVICES PTE. LTD.</h3>
+                    <div class="contact-detail">
+                        <p><span>📍</span> 291 Yishun Street 22 #01-397 Singapore 760291</p>
+                        <p><span>📞</span> +65 8822 5030</p>
+                        <p><span>📧</span> jiaxing28sg@gmail.com</p>
+                        <p><span>🕒</span> 周一至周日 8:30 - 18:00</p>
+                        <p><span>💬</span> WhatsApp: +65 8822 5030</p>
+                        <p><span>🏢</span> UEN: 202230583W</p>
+                    </div>
+                    <div style="margin-top: 24px;"><a href="https://wa.me/6588225030?text=Hello%20Jiaxing%20Services%2C%20I%27m%20interested" target="_blank" class="btn" style="background:#25D366; padding: 10px 22px;">WhatsApp 联系</a></div>
+                </div>
+                <div class="contact-form-side">
+                    <h4 data-lang="zh">留言咨询</h4><h4 data-lang="en" class="hidden-lang">Leave a Message</h4>
+                    <form id="contactForm">
+                        <div class="input-group"><input type="text" id="name" placeholder="姓名 *" required></div>
+                        <div class="input-group"><input type="email" id="email" placeholder="电子邮箱 *" required></div>
+                        <div class="input-group"><input type="tel" id="phone" placeholder="电话 (选填)"></div>
+                        <div class="input-group"><select id="serviceSelect"><option value="">感兴趣的服务 (选填)</option><option>餐厅洗碗/后厨清洁</option><option>办公室/商业清洁</option><option>临时人力支援</option><option>组屋/公寓清洁</option><option>地毯/沙发清洗</option><option>玻璃清洁</option><option>空调维护</option><option>装修后清洁</option><option>其他</option></select></div>
+                        <div class="input-group"><textarea rows="3" id="message" placeholder="请简单描述您的需求..."></textarea></div>
+                        <button type="submit" class="btn-submit" id="submitBtn" data-lang="zh">发送留言</button>
+                        <button type="submit" class="btn-submit" id="submitBtnEn" style="display:none;">Send Message</button>
+                        <div class="form-note" data-lang="zh">我们通常会在24小时内通过邮件或电话回复您。</div>
+                        <div class="form-note" data-lang="en" class="hidden-lang">We usually reply within 24 hours via email or phone.</div>
+                        <div id="formStatus"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2025 JIAXING SERVICES PTE. LTD. (UEN: 202230583W)</p>
+        <p data-lang="zh">新加坡注册清洁与人力服务 | 踏实做事 · 用心服务</p>
+        <p data-lang="en" class="hidden-lang">Singapore Registered Cleaning & Manpower Services | Reliable & Sincere</p>
+    </div>
+</footer>
+<a href="https://wa.me/6588225030?text=Hi%20Jiaxing%20Services" class="whatsapp-float" target="_blank">💬</a>
+
+<script>
+    const zhBtn = document.getElementById('langZh'), enBtn = document.getElementById('langEn');
+    const zhEls = document.querySelectorAll('[data-lang="zh"]'), enEls = document.querySelectorAll('[data-lang="en"]');
+    function setLang(lang) {
+        if (lang === 'zh') {
+            zhEls.forEach(el => el.classList.remove('hidden-lang'));
+            enEls.forEach(el => el.classList.add('hidden-lang'));
+            zhBtn.classList.add('active'); enBtn.classList.remove('active');
+            if(document.getElementById('submitBtn')) document.getElementById('submitBtn').style.display = 'block';
+            if(document.getElementById('submitBtnEn')) document.getElementById('submitBtnEn').style.display = 'none';
+        } else {
+            zhEls.forEach(el => el.classList.add('hidden-lang'));
+            enEls.forEach(el => el.classList.remove('hidden-lang'));
+            enBtn.classList.add('active'); zhBtn.classList.remove('active');
+            if(document.getElementById('submitBtn')) document.getElementById('submitBtn').style.display = 'none';
+            if(document.getElementById('submitBtnEn')) document.getElementById('submitBtnEn').style.display = 'block';
+        }
+        const navMap = { nav_home: { zh: '首页', en: 'Home' }, nav_services: { zh: '服务', en: 'Services' }, nav_about: { zh: '公司简介', en: 'About' }, nav_reviews: { zh: '客户反馈', en: 'Testimonials' }, nav_contact: { zh: '联系我们', en: 'Contact' }, hero_btn: { zh: '联系我们 →', en: 'Contact Us →' } };
+        document.querySelectorAll('[data-key]').forEach(el => { let key = el.getAttribute('data-key'); if (navMap[key]) el.innerText = navMap[key][lang]; });
+    }
+    zhBtn.addEventListener('click', () => setLang('zh'));
+    enBtn.addEventListener('click', () => setLang('en'));
+    setLang('zh');
+
+    const form = document.getElementById('contactForm');
+    const statusDiv = document.getElementById('formStatus');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        if (!name || !email) { statusDiv.innerHTML = '<div class="success-msg" style="background:#ffe6e6; color:#b33;">请填写姓名和邮箱 / Name & Email required</div>'; return; }
+        const fd = new FormData();
+        fd.append('name', name);
+        fd.append('email', email);
+        fd.append('phone', document.getElementById('phone').value);
+        fd.append('service', document.getElementById('serviceSelect').value);
+        fd.append('message', document.getElementById('message').value);
+        fd.append('_subject', `New Inquiry from ${name} - Jiaxing Services`);
+        fd.append('_captcha', 'false');
+        try {
+            const res = await fetch('https://formsubmit.co/ajax/jiaxing28sg@gmail.com', { method: 'POST', body: fd });
+            if (res.ok) {
+                statusDiv.innerHTML = '<div class="success-msg">✅ 已发送！我们会尽快联系您 / Sent! We will contact you soon.</div>';
+                form.reset();
+                setTimeout(() => statusDiv.innerHTML = '', 5000);
+            } else throw new Error();
+        } catch (err) {
+            const subj = `Inquiry from ${name}`;
+            const body = `Name: ${name}\nEmail: ${email}\nPhone: ${document.getElementById('phone').value}\nService: ${document.getElementById('serviceSelect').value}\nMessage: ${document.getElementById('message').value}`;
+            window.location.href = `mailto:jiaxing28sg@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+            statusDiv.innerHTML = '<div class="success-msg">📧 已打开邮件客户端，发送即可 / Email client opened, please send.</div>';
+        }
+    });
+</script>
+</body>
+</html>
